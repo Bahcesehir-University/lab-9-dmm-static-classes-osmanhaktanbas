@@ -149,13 +149,14 @@ IntArray::~IntArray() {
 // Copy Constructor
 IntArray::IntArray(const IntArray& other) {
     // TODO 8: Deep copy - allocate new memory and copy elements
+    capacity = other.capacity;
+    count = other.count;
     data = new int[capacity];
     for(int i = 0; i<capacity ; i++){
         data[i] = other.data[i];
     }
     //         Don't forget to copy capacity and count
-    capacity = other.capacity;
-    count = other.count;
+   
     //         Notify Tracker that an object was created
     Tracker::objectCreated();
 
