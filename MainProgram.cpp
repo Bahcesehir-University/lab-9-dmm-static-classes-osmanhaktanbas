@@ -164,22 +164,14 @@ IntArray::IntArray(const IntArray& other) {
 
 // Copy Assignment Operator
 IntArray& IntArray::operator=(const IntArray& other) {
-    // TODO 9: Implement copy assignment
-    //         1. Check for self-assignment (this != &other)
-    if( this != &other){
+    if (this != &other) {               // self-assignment guard
+        delete[] data;                  // free old memory
         capacity = other.capacity;
         count = other.count;
-        delete[] data;
-        data = new int[capacity];
-        
-        
+        data = new int[capacity];       // allocate new memory
+        for (int i = 0; i < count; i++)
+            data[i] = other.data[i];
     }
-    //         2. Delete old memory
-    //         3. Allocate new memory
-    //         4. Copy all elements, capacity, and count
-    //         5. Return *this
-    //         NOTE: Do NOT call Tracker here (object already exists)
-
     return *this;
 }
 
