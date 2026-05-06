@@ -197,7 +197,7 @@ bool IntArray::add(int value) {
 // Get element at index
 int IntArray::get(int index) const {
     // TODO 11: If index is valid (0 <= index < count), return data[index].
-    if(0 <= index < count){
+    if(index >= 0 && index < count){
         return data[index];
     }
     //          Otherwise return -1.
@@ -219,10 +219,9 @@ int IntArray::getCapacity() const {
 // isEmpty
 bool IntArray::isEmpty() const {
     // TODO 14: Return true if count == 0
-    if( count == 0){
-        return true;
-    }
-    
+
+        return count == 0;
+  
 }
 
 // Remove last element
