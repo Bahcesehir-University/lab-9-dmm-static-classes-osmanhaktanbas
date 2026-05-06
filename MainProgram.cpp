@@ -167,10 +167,11 @@ IntArray& IntArray::operator=(const IntArray& other) {
     // TODO 9: Implement copy assignment
     //         1. Check for self-assignment (this != &other)
     if( this != &other){
-        delete[] data;
-        data = new int[capacity];
         capacity = other.capacity;
         count = other.count;
+        delete[] data;
+        data = new int[capacity];
+        
         
     }
     //         2. Delete old memory
@@ -230,6 +231,7 @@ bool IntArray::removeLast() {
     // TODO 15: If not empty, decrement count and return true.
     if( count !=0){
         count--;
+        return true;
     }
     //          Otherwise return false.
     return false;
